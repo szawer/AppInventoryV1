@@ -1,9 +1,8 @@
 package pl.lukaszszawronski.inventoryapp.category;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.lukaszszawronski.inventoryapp.brand.Brand;
 
 import javax.persistence.*;
 
@@ -19,6 +18,10 @@ public class Category {
 
     @Column(length = 45, nullable = false, unique = true)
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
 
     public Category() {
     }
