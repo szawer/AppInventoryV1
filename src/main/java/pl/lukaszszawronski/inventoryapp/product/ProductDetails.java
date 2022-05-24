@@ -23,4 +23,25 @@ public class ProductDetails {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
+    public ProductDetails() {
+    }
+
+    public ProductDetails(String name, String value, Product product) {
+        this.name = name;
+        this.value = value;
+        this.product = product;
+    }
+
+    public ProductDetails(Integer id, String name, String value, Product product) {
+        this.id = id;
+        this.name = name;
+        this.value = value;
+        this.product = product;
+    }
+
+    @Override
+    public String toString() {
+        return name + "=" + value;
+    }
 }
