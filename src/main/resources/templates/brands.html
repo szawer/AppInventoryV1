@@ -2,26 +2,32 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List Categories</title>
+    <title>List Brands</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
 
 <div class="container text-center">
-    <div><h1>Category List</h1></div>
+    <div><h1>Brand List</h1></div>
     <div>
         <table class="table table-bordered">
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Categories</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-            <th:block th:each="category : ${listCategories}">
+            <th:block th:each="brand : ${listBrands}">
                 <tr>
-                    <td>[[${category.id}]]</td>
-                    <td>[[${category.name}]]</td>
+                    <td>[[${brand.id}]]</td>
+                    <td>[[${brand.name}]]</td>
+                    <td>[[${brand.categories}]]</td>
+                    <td>
+                        <a th:href="@{'/brands/edit/' + ${brand.id}}">Edit</a>
+                    </td>
                 </tr>
             </th:block>
             </tbody>
